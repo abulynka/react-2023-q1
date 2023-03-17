@@ -1,0 +1,10 @@
+.header {}
+
+.header__item {
+    color: white;
+    padding: 0 30px;
+}
+
+.header__item:hover {
+    color: #1a1a1a;
+}
