@@ -1,0 +1,29 @@
+.card {
+
+}
+
+.card__image {
+
+}
+
+.card__title {
+
+}
+
+.card__desc {
+
+}
+
+.card__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card__container-likes {
+
+}
+
+.card__container-views {
+
+}
