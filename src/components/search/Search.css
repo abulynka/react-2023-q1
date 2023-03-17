@@ -1,0 +1,14 @@
+.search {
+    display: flex;
+    align-items: center;
+}
+
+.search__text {
+    height: 100%;
+    padding: 0 10px;
+}
+
+.search__button {
+    height: 100%;
+    padding: 0 10px;
+}
