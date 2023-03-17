@@ -1,0 +1,15 @@
+.main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main__search {
+    padding-top: 10px;
+}
+
+.main__cards {
+    width: 100%;
+    display: flex;
+}
