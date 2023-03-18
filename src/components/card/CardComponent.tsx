@@ -8,7 +8,7 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 class CardComponent extends Component<{ card: CardItem }> {
   public render(): JSX.Element {
     return (
-      <Card className="card" sx={{ maxWidth: 345 }}>
+      <Card className="card" sx={{ padding: 1, width: 300, margin: 1 }}>
         <CardHeader className="card__title" title={this.props.card.title} />
         <CardMedia
           className="card__image"
