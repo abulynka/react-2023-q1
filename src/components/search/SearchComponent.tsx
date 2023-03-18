@@ -1,8 +1,8 @@
-import './Search.css';
+import './SearchComponent.css';
 import React, { ChangeEvent, Component } from 'react';
 import { Button, TextField } from '@mui/material';
 
-class Search extends Component<object, { input: string }> {
+class SearchComponent extends Component<object, { input: string }> {
   constructor(props: object) {
     super(props);
     this.state = { input: localStorage.getItem('search__text') || '' };
@@ -31,4 +31,4 @@ class Search extends Component<object, { input: string }> {
   }
 }
 
-export default Search;
+export default SearchComponent;

@@ -1,6 +1,6 @@
 import './Main.css';
 import React, { Component } from 'react';
-import Search from '../components/search/Search';
+import SearchComponent from '../components/search/SearchComponent';
 import CardModel from '../models/CardModel';
 import CardComponent from '../components/card/CardComponent';
 import CardItem from '../data/CardItem';
@@ -10,7 +10,7 @@ class Main extends Component {
     return (
       <main className="main">
         <div className="main__search">
-          <Search />
+          <SearchComponent />
         </div>
         <section className="main__cards">
           {new CardModel().getCards().map((card: CardItem) => (

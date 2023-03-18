@@ -1,9 +1,9 @@
-import './Header.css';
+import './HeaderComponent.css';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { AppBar, Container, Toolbar } from '@mui/material';
 
-class Header extends Component {
+class HeaderComponent extends Component {
   public render(): JSX.Element {
     return (
       <AppBar position="static" className="header">
@@ -22,4 +22,4 @@ class Header extends Component {
   }
 }
 
-export default Header;
+export default HeaderComponent;
