@@ -1,6 +1,5 @@
 import './SearchComponent.css';
 import React, { ChangeEvent, Component } from 'react';
-import { Button, TextField } from '@mui/material';
 
 class SearchComponent extends Component<object, { input: string }> {
   constructor(props: object) {
@@ -11,17 +10,14 @@ class SearchComponent extends Component<object, { input: string }> {
   public render(): JSX.Element {
     return (
       <div className="search">
-        <div className="search__text">
-          <TextField
-            defaultValue={this.state.input}
-            onChange={(value: ChangeEvent<HTMLInputElement>) =>
-              this.setState({ input: value.target.value })
-            }
-          />
-        </div>
-        <div className="search__button">
-          <Button variant="contained">Search</Button>
-        </div>
+        <input
+          className="search__text"
+          defaultValue={this.state.input}
+          onChange={(value: ChangeEvent<HTMLInputElement>) =>
+            this.setState({ input: value.target.value })
+          }
+        ></input>
+        <button className="search__button">Search</button>
       </div>
     );
   }

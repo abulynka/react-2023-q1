@@ -1,17 +1,32 @@
 .card {
-
+    width: 300px;
+    background-color: #edfff1;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 3px;
 }
 
 .card__image {
-
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    object-fit: contain;
 }
 
 .card__title {
-
+    display: flex;
+    justify-content: center;
+    text-transform: capitalize;
 }
 
 .card__desc {
+    padding-left: 10px;
+}
 
+.card__desc:first-letter {
+    text-transform: capitalize;
 }
 
 .card__container {
@@ -21,9 +36,9 @@
 }
 
 .card__container-likes {
-
+    padding-right: 5px;
 }
 
 .card__container-views {
-
+    padding-left: 5px;
 }
