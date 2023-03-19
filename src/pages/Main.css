@@ -8,11 +8,3 @@
 .main__search {
     padding-top: 10px;
 }
-
-.main__cards {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    padding-top: 10px;
-    flex-wrap: wrap;
-}
