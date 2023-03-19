@@ -6,7 +6,7 @@ import CardItem from '../../data/CardItem';
 import React from 'react';
 
 describe('CardComponent', () => {
-  it('Hello, World!', () => {
+  it('Check Title', () => {
     const cardItem: CardItem = {
       number: '0',
       imageURL: '/assets/cabbage.png',
