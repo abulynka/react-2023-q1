@@ -9,5 +9,5 @@ export interface FormSelectProps {
 
   errorMessages: string[];
 
-  key: string;
+  keyValue: string;
 }

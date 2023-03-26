@@ -13,7 +13,7 @@ class InputDateComponent extends Component<FormInputProps> {
 
         {this.props.errorMessages.map((errorMessage: string) => (
           <ErrorMessageComponent
-            key={this.props.key + errorMessage}
+            key={this.props.keyValue + errorMessage}
             errorMessage={errorMessage}
           ></ErrorMessageComponent>
         ))}

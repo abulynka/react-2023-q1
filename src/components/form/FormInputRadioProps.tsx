@@ -10,5 +10,5 @@ export interface FormInputRadioProps {
 
   errorMessages: string[];
 
-  key: string;
+  keyValue: string;
 }

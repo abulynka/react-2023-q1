@@ -9,5 +9,5 @@ export interface FormInputCheckboxProps {
 
   errorMessages: string[];
 
-  key: string;
+  keyValue: string;
 }

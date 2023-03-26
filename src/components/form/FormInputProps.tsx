@@ -7,5 +7,5 @@ export interface FormInputProps {
 
   errorMessages: string[];
 
-  key: string;
+  keyValue: string;
 }
