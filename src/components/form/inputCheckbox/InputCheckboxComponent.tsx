@@ -21,7 +21,7 @@ class InputCheckboxComponent extends Component<FormInputCheckboxProps> {
 
         {this.props.errorMessages.map((errorMessage: string) => (
           <ErrorMessageComponent
-            key={crypto.randomUUID()}
+            key={this.props.key + errorMessage}
             errorMessage={errorMessage}
           ></ErrorMessageComponent>
         ))}
