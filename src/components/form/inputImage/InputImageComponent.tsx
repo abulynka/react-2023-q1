@@ -11,7 +11,7 @@ class InputImageComponent extends Component<FormInputProps> {
         </label>
         {this.props.errorMessages.map((errorMessage: string) => (
           <ErrorMessageComponent
-            key={crypto.randomUUID()}
+            key={this.props.key + errorMessage}
             errorMessage={errorMessage}
           ></ErrorMessageComponent>
         ))}

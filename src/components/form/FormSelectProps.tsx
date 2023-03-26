@@ -8,4 +8,6 @@ export interface FormSelectProps {
   options: string[];
 
   errorMessages: string[];
+
+  key: string;
 }

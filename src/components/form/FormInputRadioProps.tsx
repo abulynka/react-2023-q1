@@ -9,4 +9,6 @@ export interface FormInputRadioProps {
   title: string;
 
   errorMessages: string[];
+
+  key: string;
 }

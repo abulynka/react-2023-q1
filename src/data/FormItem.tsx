@@ -14,6 +14,8 @@ interface FormItem {
   file: string;
 
   files: FileList | null | undefined;
+
+  key: string;
 }
 
 export default FormItem;

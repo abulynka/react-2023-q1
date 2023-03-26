@@ -15,7 +15,7 @@ class FormCardListComponent extends Component<{ formItems: FormItem[] }> {
     return (
       <div className="form-card-list">
         {this.props.formItems.map((formItem: FormItem) => (
-          <FormCardComponent key={crypto.randomUUID()} formItem={formItem}></FormCardComponent>
+          <FormCardComponent key={formItem.key} formItem={formItem}></FormCardComponent>
         ))}
       </div>
     );

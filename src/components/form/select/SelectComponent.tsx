@@ -11,14 +11,14 @@ class SelectComponent extends Component<FormSelectProps> {
           {this.props.name}:
           <select className="select__control" ref={this.props.refObject}>
             {this.props.options.map((option) => (
-              <option key={crypto.randomUUID()}>{option}</option>
+              <option key={this.props.key}>{option}</option>
             ))}
           </select>
         </label>
 
         {this.props.errorMessages.map((errorMessage: string) => (
           <ErrorMessageComponent
-            key={crypto.randomUUID()}
+            key={this.props.key + errorMessage}
             errorMessage={errorMessage}
           ></ErrorMessageComponent>
         ))}

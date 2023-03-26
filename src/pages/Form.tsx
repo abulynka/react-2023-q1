@@ -151,6 +151,7 @@ class Form extends Component<object, FormState> {
     formItem.shouldBePackedNo = this.formItem.shouldBePackedNo.current?.checked || false;
     formItem.file = this.formItem.file.current?.value || '';
     formItem.files = this.formItem.file.current?.files;
+    formItem.key = crypto.randomUUID();
 
     const errorMessages = {
       name: {
@@ -214,12 +215,14 @@ class Form extends Component<object, FormState> {
             refObject={this.formItem.name}
             name={'Name'}
             errorMessages={this.state.name.errorMessages}
+            key={crypto.randomUUID()}
           ></InputComponent>
 
           <InputDateComponent
             refObject={this.formItem.bestBeforeDate}
             name="Best Before Date"
             errorMessages={this.state.bestBeforeDate.errorMessages}
+            key={crypto.randomUUID()}
           ></InputDateComponent>
 
           <SelectComponent
@@ -227,6 +230,7 @@ class Form extends Component<object, FormState> {
             name={'Delivery by'}
             options={['Today', 'Tomorrow', 'After Tomorrow']}
             errorMessages={this.state.deliveryBy.errorMessages}
+            key={crypto.randomUUID()}
           ></SelectComponent>
 
           <InputCheckboxComponent
@@ -234,6 +238,7 @@ class Form extends Component<object, FormState> {
             name={'Cook'}
             title={'Choose extra feature'}
             errorMessages={this.state.cook.errorMessages}
+            key={crypto.randomUUID()}
           ></InputCheckboxComponent>
 
           <InputRadioYNComponent
@@ -242,12 +247,14 @@ class Form extends Component<object, FormState> {
             name={'packed'}
             title={'Should be packed'}
             errorMessages={this.state.shouldBePacked.errorMessages}
+            key={crypto.randomUUID()}
           ></InputRadioYNComponent>
 
           <InputImageComponent
             refObject={this.formItem.file}
             name={'File'}
             errorMessages={this.state.file.errorMessages}
+            key={crypto.randomUUID()}
           ></InputImageComponent>
 
           <div className="form__item">

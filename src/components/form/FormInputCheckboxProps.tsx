@@ -8,4 +8,6 @@ export interface FormInputCheckboxProps {
   title: string;
 
   errorMessages: string[];
+
+  key: string;
 }

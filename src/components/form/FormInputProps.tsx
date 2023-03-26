@@ -6,4 +6,6 @@ export interface FormInputProps {
   name: string;
 
   errorMessages: string[];
+
+  key: string;
 }
