@@ -186,6 +186,7 @@ class Form extends Component<object, FormState> {
       errorMessages.file.errorMessages.length === 0
     ) {
       formItems.push(formItem);
+      alert('The data has been saved!');
       this.formItem.base.current?.reset();
     }
 
