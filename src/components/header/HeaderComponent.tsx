@@ -12,6 +12,9 @@ class HeaderComponent extends Component {
         <NavLink className="header__item" to="/about">
           About Us
         </NavLink>
+        <NavLink className="header__item" to="/form">
+          Form
+        </NavLink>
       </header>
     );
   }
