@@ -110,10 +110,12 @@ class Form extends Component<object, FormState> {
   private validateDeliveryBy(value: string): string[] {
     const messages: string[] = [];
 
+    this.validateRequired(value, messages);
+
     return messages;
   }
 
-  private validateCook(value: boolean | null) {
+  private validateCook() {
     const messages: string[] = [];
 
     return messages;
@@ -161,7 +163,7 @@ class Form extends Component<object, FormState> {
         errorMessages: this.validateDeliveryBy(formItem.deliveryBy),
       },
       cook: {
-        errorMessages: this.validateCook(formItem.cook),
+        errorMessages: this.validateCook(),
       },
       shouldBePacked: {
         errorMessages: this.validateShouldBePacked(
