@@ -95,6 +95,9 @@ class Form extends Component<object, FormState> {
     const messages: string[] = [];
 
     this.validateRequired(value, messages);
+    if (value !== '' && value.charAt(0) !== value.charAt(0).toUpperCase()) {
+      messages.push(ErrorMessages.CAPITAL);
+    }
 
     return messages;
   }
@@ -103,6 +106,9 @@ class Form extends Component<object, FormState> {
     const messages: string[] = [];
 
     this.validateRequired(value, messages);
+    if (value !== '' && +new Date(value) < +new Date()) {
+      messages.push(ErrorMessages.DATE_SHOULD_BE_GREATER_THAN_CURRENT);
+    }
 
     return messages;
   }
@@ -215,14 +221,14 @@ class Form extends Component<object, FormState> {
             refObject={this.formItem.name}
             name={'Name'}
             errorMessages={this.state.name.errorMessages}
-            key={crypto.randomUUID()}
+            keyValue={crypto.randomUUID()}
           ></InputComponent>
 
           <InputDateComponent
             refObject={this.formItem.bestBeforeDate}
             name="Best Before Date"
             errorMessages={this.state.bestBeforeDate.errorMessages}
-            key={crypto.randomUUID()}
+            keyValue={crypto.randomUUID()}
           ></InputDateComponent>
 
           <SelectComponent
@@ -230,7 +236,7 @@ class Form extends Component<object, FormState> {
             name={'Delivery by'}
             options={['Today', 'Tomorrow', 'After Tomorrow']}
             errorMessages={this.state.deliveryBy.errorMessages}
-            key={crypto.randomUUID()}
+            keyValue={crypto.randomUUID()}
           ></SelectComponent>
 
           <InputCheckboxComponent
@@ -238,7 +244,7 @@ class Form extends Component<object, FormState> {
             name={'Cook'}
             title={'Choose extra feature'}
             errorMessages={this.state.cook.errorMessages}
-            key={crypto.randomUUID()}
+            keyValue={crypto.randomUUID()}
           ></InputCheckboxComponent>
 
           <InputRadioYNComponent
@@ -247,14 +253,14 @@ class Form extends Component<object, FormState> {
             name={'packed'}
             title={'Should be packed'}
             errorMessages={this.state.shouldBePacked.errorMessages}
-            key={crypto.randomUUID()}
+            keyValue={crypto.randomUUID()}
           ></InputRadioYNComponent>
 
           <InputImageComponent
             refObject={this.formItem.file}
             name={'File'}
             errorMessages={this.state.file.errorMessages}
-            key={crypto.randomUUID()}
+            keyValue={crypto.randomUUID()}
           ></InputImageComponent>
 
           <div className="form__item">
