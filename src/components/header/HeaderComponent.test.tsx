@@ -12,6 +12,6 @@ describe('HeaderComponent', () => {
         <HeaderComponent />
       </MemoryRouter>
     );
-    expect(screen.getAllByRole('link')).toHaveLength(2);
+    expect(screen.getAllByRole('link')).toHaveLength(3);
   });
 });
