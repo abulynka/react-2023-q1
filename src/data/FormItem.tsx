@@ -5,11 +5,15 @@ interface FormItem {
 
   deliveryBy: string;
 
-  cook: boolean;
+  cook: boolean | null;
 
-  shouldBePacked: boolean;
+  shouldBePackedYes: boolean;
+
+  shouldBePackedNo: boolean;
 
   file: string;
+
+  files: FileList | null | undefined;
 }
 
 export default FormItem;
