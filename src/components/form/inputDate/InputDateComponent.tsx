@@ -13,7 +13,7 @@ class InputDateComponent extends Component<FormInputProps> {
 
         {this.props.errorMessages.map((errorMessage: string) => (
           <ErrorMessageComponent
-            key={crypto.randomUUID()}
+            key={this.props.key + errorMessage}
             errorMessage={errorMessage}
           ></ErrorMessageComponent>
         ))}
