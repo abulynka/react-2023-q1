@@ -121,8 +121,12 @@ class Form extends Component<object, FormState> {
     return messages;
   }
 
-  private validateCook() {
+  private validateCook(value: boolean | null): string[] {
     const messages: string[] = [];
+
+    if (!value) {
+      messages.push(ErrorMessages.REQUIRED);
+    }
 
     return messages;
   }
@@ -163,7 +167,6 @@ class Form extends Component<object, FormState> {
     formItem.shouldBePackedYes = this.formItem.shouldBePackedYes.current?.checked || false;
     formItem.shouldBePackedNo = this.formItem.shouldBePackedNo.current?.checked || false;
     formItem.file = this.formItem.file.current?.value || '';
-    formItem.image = this.getImage(this.formItem.file.current?.files);
     formItem.key = crypto.randomUUID();
 
     const errorMessages = {
@@ -177,7 +180,7 @@ class Form extends Component<object, FormState> {
         errorMessages: this.validateDeliveryBy(formItem.deliveryBy),
       },
       cook: {
-        errorMessages: this.validateCook(),
+        errorMessages: this.validateCook(formItem.cook),
       },
       shouldBePacked: {
         errorMessages: this.validateShouldBePacked(
@@ -200,6 +203,7 @@ class Form extends Component<object, FormState> {
       errorMessages.file.errorMessages.length === 0
     ) {
       formItems.push(formItem);
+      formItem.image = this.getImage(this.formItem.file.current?.files);
       alert('The data has been saved!');
       this.formItem.base.current?.reset();
     }
@@ -241,7 +245,7 @@ class Form extends Component<object, FormState> {
           <SelectComponent
             refObject={this.formItem.deliveryBy}
             name={'Delivery by'}
-            options={['Today', 'Tomorrow', 'After Tomorrow']}
+            options={['', 'Today', 'Tomorrow', 'After Tomorrow']}
             errorMessages={this.state.deliveryBy.errorMessages}
             keyValue={crypto.randomUUID()}
           ></SelectComponent>
@@ -249,7 +253,7 @@ class Form extends Component<object, FormState> {
           <InputCheckboxComponent
             refObject={this.formItem.cook}
             name={'Cook'}
-            title={'Choose extra feature'}
+            title={'Choose extra feature (you should accept it)'}
             errorMessages={this.state.cook.errorMessages}
             keyValue={crypto.randomUUID()}
           ></InputCheckboxComponent>
