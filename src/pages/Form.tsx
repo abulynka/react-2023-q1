@@ -19,6 +19,8 @@ interface FormItemElement {
 
   deliveryBy: React.RefObject<HTMLSelectElement>;
 
+  deliveryByKey: string;
+
   cook: React.RefObject<HTMLInputElement>;
 
   shouldBePackedYes: React.RefObject<HTMLInputElement>;
@@ -83,6 +85,18 @@ class Form extends Component<object, FormState> {
         errorMessages: [],
       },
     };
+
+    this.formItem.base = createRef<HTMLFormElement>();
+
+    this.formItem.name = createRef<HTMLInputElement>();
+    this.formItem.bestBeforeDate = createRef<HTMLInputElement>();
+    this.formItem.deliveryBy = createRef<HTMLSelectElement>();
+    this.formItem.deliveryByKey = crypto.randomUUID();
+
+    this.formItem.cook = createRef<HTMLInputElement>();
+    this.formItem.shouldBePackedYes = createRef<HTMLInputElement>();
+    this.formItem.shouldBePackedNo = createRef<HTMLInputElement>();
+    this.formItem.file = createRef<HTMLInputElement>();
   }
 
   private validateRequired(value: string, messages: string[]) {
@@ -215,16 +229,6 @@ class Form extends Component<object, FormState> {
   };
 
   public render(): JSX.Element {
-    this.formItem.base = createRef<HTMLFormElement>();
-
-    this.formItem.name = createRef<HTMLInputElement>();
-    this.formItem.bestBeforeDate = createRef<HTMLInputElement>();
-    this.formItem.deliveryBy = createRef<HTMLSelectElement>();
-    this.formItem.cook = createRef<HTMLInputElement>();
-    this.formItem.shouldBePackedYes = createRef<HTMLInputElement>();
-    this.formItem.shouldBePackedNo = createRef<HTMLInputElement>();
-    this.formItem.file = createRef<HTMLInputElement>();
-
     return (
       <div className="form">
         <form className="form__container" onSubmit={this.submit} ref={this.formItem.base}>
@@ -247,7 +251,7 @@ class Form extends Component<object, FormState> {
             name={'Delivery by'}
             options={['', 'Today', 'Tomorrow', 'After Tomorrow']}
             errorMessages={this.state.deliveryBy.errorMessages}
-            keyValue={crypto.randomUUID()}
+            keyValue={this.formItem.deliveryByKey}
           ></SelectComponent>
 
           <InputCheckboxComponent
