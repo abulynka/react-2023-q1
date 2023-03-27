@@ -15,7 +15,11 @@ interface FormItemElement {
 
   name: React.RefObject<HTMLInputElement>;
 
+  nameKey: string;
+
   bestBeforeDate: React.RefObject<HTMLInputElement>;
+
+  bestBeforeDateKey: string;
 
   deliveryBy: React.RefObject<HTMLSelectElement>;
 
@@ -23,11 +27,17 @@ interface FormItemElement {
 
   cook: React.RefObject<HTMLInputElement>;
 
+  cookKey: string;
+
   shouldBePackedYes: React.RefObject<HTMLInputElement>;
 
   shouldBePackedNo: React.RefObject<HTMLInputElement>;
 
+  shouldBePackedKey: string;
+
   file: React.RefObject<HTMLInputElement>;
+
+  fileKey: string;
 }
 
 interface FormState {
@@ -89,14 +99,23 @@ class Form extends Component<object, FormState> {
     this.formItem.base = createRef<HTMLFormElement>();
 
     this.formItem.name = createRef<HTMLInputElement>();
+    this.formItem.nameKey = crypto.randomUUID();
+
     this.formItem.bestBeforeDate = createRef<HTMLInputElement>();
+    this.formItem.bestBeforeDateKey = crypto.randomUUID();
+
     this.formItem.deliveryBy = createRef<HTMLSelectElement>();
     this.formItem.deliveryByKey = crypto.randomUUID();
 
     this.formItem.cook = createRef<HTMLInputElement>();
+    this.formItem.cookKey = crypto.randomUUID();
+
     this.formItem.shouldBePackedYes = createRef<HTMLInputElement>();
     this.formItem.shouldBePackedNo = createRef<HTMLInputElement>();
+    this.formItem.shouldBePackedKey = crypto.randomUUID();
+
     this.formItem.file = createRef<HTMLInputElement>();
+    this.formItem.fileKey = crypto.randomUUID();
   }
 
   private validateRequired(value: string, messages: string[]) {
@@ -236,14 +255,14 @@ class Form extends Component<object, FormState> {
             refObject={this.formItem.name}
             name={'Name'}
             errorMessages={this.state.name.errorMessages}
-            keyValue={crypto.randomUUID()}
+            keyValue={this.formItem.nameKey}
           ></InputComponent>
 
           <InputDateComponent
             refObject={this.formItem.bestBeforeDate}
             name="Best Before Date"
             errorMessages={this.state.bestBeforeDate.errorMessages}
-            keyValue={crypto.randomUUID()}
+            keyValue={this.formItem.bestBeforeDateKey}
           ></InputDateComponent>
 
           <SelectComponent
@@ -259,7 +278,7 @@ class Form extends Component<object, FormState> {
             name={'Cook'}
             title={'Choose extra feature (you should accept it)'}
             errorMessages={this.state.cook.errorMessages}
-            keyValue={crypto.randomUUID()}
+            keyValue={this.formItem.cookKey}
           ></InputCheckboxComponent>
 
           <InputRadioYNComponent
@@ -268,14 +287,14 @@ class Form extends Component<object, FormState> {
             name={'packed'}
             title={'Should be packed'}
             errorMessages={this.state.shouldBePacked.errorMessages}
-            keyValue={crypto.randomUUID()}
+            keyValue={this.formItem.shouldBePackedKey}
           ></InputRadioYNComponent>
 
           <InputImageComponent
             refObject={this.formItem.file}
             name={'File'}
             errorMessages={this.state.file.errorMessages}
-            keyValue={crypto.randomUUID()}
+            keyValue={this.formItem.fileKey}
           ></InputImageComponent>
 
           <div className="form__item">
