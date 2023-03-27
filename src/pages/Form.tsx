@@ -145,6 +145,13 @@ class Form extends Component<object, FormState> {
     return messages;
   }
 
+  private getImage(files: FileList | null | undefined): string {
+    if (files) {
+      return window.URL.createObjectURL(files[0]);
+    }
+    return '';
+  }
+
   public submit = (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -156,7 +163,7 @@ class Form extends Component<object, FormState> {
     formItem.shouldBePackedYes = this.formItem.shouldBePackedYes.current?.checked || false;
     formItem.shouldBePackedNo = this.formItem.shouldBePackedNo.current?.checked || false;
     formItem.file = this.formItem.file.current?.value || '';
-    formItem.files = this.formItem.file.current?.files;
+    formItem.image = this.getImage(this.formItem.file.current?.files);
     formItem.key = crypto.randomUUID();
 
     const errorMessages = {

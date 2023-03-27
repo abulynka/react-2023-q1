@@ -13,7 +13,7 @@ interface FormItem {
 
   file: string;
 
-  files: FileList | null | undefined;
+  image: string;
 
   key: string;
 }

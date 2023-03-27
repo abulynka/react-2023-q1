@@ -7,13 +7,6 @@ class FormCardComponent extends Component<{ formItem: FormItem }> {
     super(props);
   }
 
-  public getImage(): string {
-    if (this.props.formItem.files) {
-      return URL.createObjectURL(this.props.formItem.files[0]) || '';
-    }
-    return '';
-  }
-
   public render() {
     const formItem = this.props.formItem;
     return (
@@ -40,7 +33,7 @@ class FormCardComponent extends Component<{ formItem: FormItem }> {
           <div className="form-card__item-value">{formItem.shouldBePackedYes ? 'Yes' : 'No'}</div>
         </div>
 
-        <img className="form-card__item-image" src={this.getImage()} alt={formItem.name}></img>
+        <img className="form-card__item-image" src={formItem.image} alt={formItem.name}></img>
       </section>
     );
   }
