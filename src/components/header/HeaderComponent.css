@@ -1,0 +1,19 @@
+.header {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    background-color: #1a1a1a;
+}
+
+.header__item {
+    color: white;
+    padding: 0 30px;
+}
+
+.header__item.active {
+    color: #ff5151;
+}
+
+.header__item:hover {
+    color: #d7d7d7;
+}
